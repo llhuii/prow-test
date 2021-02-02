@@ -18,7 +18,7 @@ sudo iptables -D $(forw_rule $1)
 }
 
 for p in $(kubectl get svc -n prow |grep -i nodeport |
-  awk '($0=$5)&&sub(/.*:/,e)sub("/.*",e)'); do
- echo $p
-add_rule $p
+ awk '($0=$5)&&sub(/.*:/,e)sub("/.*",e)'); do
+  echo add rule for $p
+  add_rule $p
 done
